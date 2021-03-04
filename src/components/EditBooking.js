@@ -23,13 +23,31 @@ class EditBooking extends React.Component{
             body: JSON.stringify(editBooking)
         }
         // console.log(reqPackage)
-        fetch(`${'http://localhost:3000/bookings'}/${this.props.updatedBookings.id}`, reqPackage)
+        fetch(`${'http://localhost:3000/bookings'}/${this.props.booking.id}`, reqPackage)
         .then(res => res.json())
         // .then((patchBooking) => console.log(patchBooking))
-        .then((patchBooking) => this.props.editBookingForm(patchBooking))
-        // .then((patchBooking) => this.setState({
-        //   updatedBookings: patchBooking
-        // }))
+        .then((patchBooking) => {
+          // console.log(patchBooking)
+          this.props.editBookingForm(patchBooking)
+        })
+        
+        // .then(patchBooking => {
+        //   this.setState({
+        //     bookings: this.props.bookings.map((bookingItem) =>
+        //     //if existing booking.i is equal  to updatedbookin.id the replace existing booking with updated booking
+        //     bookingItem.id = patchBooking.id
+        //     // console.log
+        //     ),
+        //   });
+        //   // debugger
+        // })
+        
+
+        // .then(patchBooking => {
+        //   this.setState({
+        //     bookings: [...this.state.bookings, patchBooking]
+        //   });
+        // })
             // .then(this.props.editBookingForm)  
   
 }

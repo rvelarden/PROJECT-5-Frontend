@@ -25,6 +25,7 @@ class MainContainer extends Component {
             })
     })
 
+  
     // call another fetch for the other url endpoint
     fetch('http://localhost:3000/bookings')
     .then((res) => res.json())
@@ -36,10 +37,20 @@ class MainContainer extends Component {
     })
 }
 
+// componentDidUpdate (updatedBooking){
+//   this.setState({
+//     bookings: updatedBooking
+//   });
+// }
+
     editBookingForm = (updateBooking)=>{
       //  console.log(updateBooking)
+      // this.setState({
+      //   updatedBookings: updateBooking
+      // })
+      let bookings = this.state.bookings.filter(eachBooking => eachBooking.id !== updateBooking.id)
       this.setState({
-        updatedBookings: updateBooking
+        bookings: [...bookings, updateBooking]
       })
     }
 
@@ -60,13 +71,19 @@ class MainContainer extends Component {
       })
     }
 
+    // renderBooking = (reBooking) =>{
+    //   this.setState({
+    //     bookings: this.state.bookings.find(uBooking => uBooking.id == reBooking.id)
+    //   })
+    // }
+
     deleteBooking = (booking) =>{
       // console.log(artist)
       fetch('http://localhost:3000/bookings/'+booking.id, {method: 'DELETE'})
       .then(r => r.json())
       .then(()=>{
         this.setState({
-          artists: this.state.bookings.filter(deletedBooking => deletedBooking.id !== booking.id)
+          bookings: this.state.bookings.filter(deletedBooking => deletedBooking.id !== booking.id)
         })
       })
     }
@@ -79,7 +96,8 @@ class MainContainer extends Component {
       <div>
        <SearchBar searchBar={this.searchBar} searchText={this.state.searchText}/>
         <DroneList drones={filteredDrones} bookings={this.state.bookings} addNewBooking={this.addNewBooking}/>
-        <BookingList bookings={this.state.bookings} editBookingForm={this.editBookingForm} drones={this.state.drones} updatedBookings={this.state.updatedBookings} deleteBooking={this.deleteBooking}/>
+        <BookingList bookings={this.state.bookings} editBookingForm={this.editBookingForm} drones={this.state.drones} updatedBookings={this.state.updatedBookings} deleteBooking={this.deleteBooking}
+        />
       </div> : null 
       ) 
     }

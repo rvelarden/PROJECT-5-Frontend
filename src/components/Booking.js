@@ -28,7 +28,7 @@ import React, { Component } from 'react';
           <button  className='move_button' onClick={this.displayForm} >Edit Delivery</button>
           {/* <button className='move_button' onClick={()=>this.props.editBookingForm(this.props.booking)}>Edit Now</button> */}
           
-          {this.state.showForm ?  <EditBooking booking={this.props.bookingItem} updatedBookings={this.props.updatedBookings} editBookingForm={this.props.editBookingForm}/> : null}
+          {this.state.showForm ?  <EditBooking booking={this.props.booking} updatedBookings={this.props.updatedBookings} editBookingForm={this.props.editBookingForm} bookings={this.props.bookings} /> : null}
           <br></br>
           <br></br>
           <button onClick={()=>this.props.deleteBooking(this.props.booking)}className="del-btn">Cancel Booking</button>

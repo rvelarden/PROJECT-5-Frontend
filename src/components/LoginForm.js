@@ -1,6 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router";
-import { Form, Segment, Message } from "semantic-ui-react";
+import { Form, Segment, Message, Button } from "semantic-ui-react";
 
 class LoginForm extends React.Component {
   state = {
@@ -79,7 +79,7 @@ class LoginForm extends React.Component {
             />
             <br></br>
           </Form.Group>
-          <button type="submit">Login</button>
+          <Button type="submit">Login</Button>
       </Form>
     </Segment>
        
