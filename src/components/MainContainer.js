@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import BookingList from "./BookingList";
 import DroneList from "./DroneList";
 import SearchBar from "./SearchBar";
-// import BookingForm from './BookingForm'
+
 class MainContainer extends Component {
 
 
@@ -12,7 +12,7 @@ class MainContainer extends Component {
         bookings: [],
         updatedBookings: {},
         user: null 
-        // showForm: false
+        
       }
     
 
@@ -37,12 +37,6 @@ class MainContainer extends Component {
     })
 }
 
-// componentDidUpdate (updatedBooking){
-//   this.setState({
-//     bookings: updatedBooking
-//   });
-// }
-
     editBookingForm = (updateBooking)=>{
       //  console.log(updateBooking)
       // this.setState({
@@ -53,10 +47,6 @@ class MainContainer extends Component {
         bookings: [...bookings, updateBooking]
       })
     }
-
-    // onChangeButton = (updateBooking)=>{
-    //   console.log(updateBooking)
-    // }
 
     searchBar = (textT)=>{
       // console.log(textT)
@@ -70,12 +60,6 @@ class MainContainer extends Component {
         bookings: [...this.state.bookings, newBooking]
       })
     }
-
-    // renderBooking = (reBooking) =>{
-    //   this.setState({
-    //     bookings: this.state.bookings.find(uBooking => uBooking.id == reBooking.id)
-    //   })
-    // }
 
     deleteBooking = (booking) =>{
       // console.log(artist)

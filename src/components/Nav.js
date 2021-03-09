@@ -12,7 +12,7 @@ const Nav = ({ location: { pathname }, user, updateCurrentUser }) => {
     updateCurrentUser(null)
   }
   return (
-    <Menu pointing secondary className='cssmenu'>
+    <Menu fixed='top' inverted >
       {logged_in ? (
         <Fragment>
           {/* <Menu.Item
@@ -21,8 +21,8 @@ const Nav = ({ location: { pathname }, user, updateCurrentUser }) => {
             name="MainContainer"
             active={pathname === "/MainContainer"}
           /> */}
-          <Menu.Menu position="right">
-            <Menu.Item className="csslogout" to="/logout" name="Logout" onClick={logout} />
+          <Menu.Menu position="right" as='h3' >
+            <Menu.Item  to="/logout" name="Logout" onClick={logout} color={'green'}/>
           </Menu.Menu>
         </Fragment>
       ) : (

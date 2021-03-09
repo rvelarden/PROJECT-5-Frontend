@@ -1,4 +1,8 @@
 import React from 'react'
+import { Button, Form } from 'semantic-ui-react'
+
+
+
 
 class EditBooking extends React.Component{
     //state goes here
@@ -55,19 +59,40 @@ class EditBooking extends React.Component{
     
 render() {
   return (
+
     <div className="container">
-      
-      <form  onSubmit={(e)=>this.toggleBooking(e, this.props.updatedBookings)} className="add-form">
-        
-        <input onChange={(e)=>this.setState({from_address: e.target.value})} type="text" name="name" placeholder="Enter From Address" className="input-text" value={this.props.from_address}/>
-        <br/>
-        <input onChange={(e)=>this.setState({to_address: e.target.value})} type="text" name="name" placeholder="Enter To Address" className="input-text" value={this.props.to_address}/>
-        <br/>
-        <input type="submit" name="submit" value="Submit" className="submit" />
-      </form>
+      <br></br>
+      <Form onSubmit={(e)=>this.toggleBooking(e, this.props.updatedBookings)}>
+    <Form.Group widths='equal'>
+      <Form.Input type="text" name="name" placeholder=" From Address" onChange={(e)=>this.setState({from_address: e.target.value})}  value={this.props.from_address}/>
+    </Form.Group>
+
+    <Form.Group widths='equal'>
+      <Form.Input type="text" name="name" placeholder=" To Address" onChange={(e)=>this.setState({to_address: e.target.value})}   value={this.props.to_address}/>
+    </Form.Group>
+   
+    <Button type="submit" name="submit" value="Submit" fluid size='small'  color='blue' >
+           Submit
+    </Button>
+  </Form>
     </div>
-  );
-}
+  
+   
+      
+      // <Form onSubmit={(e)=>this.toggleBooking(e, this.props.updatedBookings)} className="add-form">
+      //   <br></br>
+      // <Form.Group widths='equal'>
+      //   <Form.Input type="text" name="name" placeholder=" From Address" onChange={(e)=>this.setState({from_address: e.target.value})}  value={this.props.from_address}/>
+        
+      //   <Form.Input type="text" name="name" placeholder=" To Address" onChange={(e)=>this.setState({to_address: e.target.value})}   value={this.props.to_address}/>
+      //   </Form.Group>
+      //   <Button type="submit" name="submit" value="Submit" fluid size='small'  color='blue' >
+      //       Submit
+      //     </Button>
+      // </Form>
     
-    }
+    );
+  }
+    
+}
 export default EditBooking;
