@@ -3,14 +3,8 @@
 // import { Button, Form, Grid, Header, Image, Message, Segment } from "semantic-ui-react";
 import Droneproject from './video/droneproject.mp4'
 import React from 'react'
-import { Button, Form, Grid, Header, Image, Message, Segment,
-  Container,
-  Divider,
-  Icon,
-  List,
-  Menu,
-  Sidebar,
-  Visibility,} from 'semantic-ui-react'
+import { Button, Form, Grid, Header, Image, Message, Segment
+ } from 'semantic-ui-react'
 
   
 
@@ -52,13 +46,13 @@ class LoginForm extends React.Component {
   }
   render() {
         return (
- <div className="banner">
+ <div className="banner" >
     <video autoPlay loop muted>
     <source src={Droneproject} type='video/mp4' />
 </video>
    <br></br>
       <Header as='h2' color='teal' textAlign='center'>
-        <Image style={{ width: "90px", height: "90px", objectFit: "cover" }} src="https://thumbs.dreamstime.com/t/vector-drone-prohibited-sign-illustration-colorful-flat-design-no-zone-quadcopter-red-background-70448549.jpg" />
+        <Image style={{ width: "150px", height: "100px", objectFit: "cover" }} src="http://arcos-platform.site/wp-content/uploads/2021/03/PosterArtboard-4Asse.png" />
       </Header>
   <Grid textAlign='center' style={{ height: '2vh' }} verticalAlign='middle' >
     <Grid.Column style={{ maxWidth: 450 }}>
@@ -75,6 +69,7 @@ class LoginForm extends React.Component {
           key="mini"
           loading={this.props.authenticatingUser}
           error={this.props.failedLogin}
+          
         >
            <Message
             error

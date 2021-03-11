@@ -236,7 +236,7 @@ button:hover {
   display:inline-block;
   /* vertical-align: top; */
   margin-top: 100px;
-  margin-left: 40px;
+  margin-left: 110px;
   font-size: 20px;
   text-align: center;
   font-family: 'Gill Sans', 'Gill Sans MT', Kufam, 'Trebuchet MS', Kufam;
@@ -282,10 +282,13 @@ button:hover {
   color: rgb(252, 249, 249);
 }
 .ui.color3.header {
-  color: rgb(165, 160, 160);
+  color: rgb(141, 137, 137);
 }
 .ui.color4.header {
   color: rgb(6, 135, 241);
+}
+.ui.color5.header {
+  color: rgb(204, 53, 7);
 }
 
 /* .grabloginform{

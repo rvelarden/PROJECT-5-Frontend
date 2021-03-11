@@ -1,6 +1,7 @@
 import BookingForm from "./BookingForm";
 import React, { Component } from 'react';
-import { Header, Button, Image, Icon, Card } from 'semantic-ui-react'
+import { Header, Button, Image, Embed, Card } from 'semantic-ui-react'
+
 
 class Drone extends Component {
 
@@ -19,6 +20,11 @@ class Drone extends Component {
       <div className="box-wrap">
 {/* min-width */}
 <Card fluid >
+{/* <Embed
+    id=' 9_QDC5f5jlJnPuLd'
+    placeholder={'https://aircargoworld.com/wp-content/uploads/2018/09/0905_flytrex-mule-on-ground.png'}
+    source='youtube'
+  /> */}
     <Image style={{ width: "400px", height: "260px", objectFit: "cover" }} src={this.props.drone.image} wrapped ui={true} />
     <Card.Content>
       <Card.Header>

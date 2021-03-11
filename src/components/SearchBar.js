@@ -1,17 +1,16 @@
 import React from "react";
 
-
+import { Card, Icon, Image, Header,Button } from 'semantic-ui-react'
 
 const Search = (props) => {
   return (
     
     
     <div className="search-bar-div" >
-     
       <br></br>
       <br></br>
       <br></br>
-      <img  className="logo" title="DroneShip" src="https://thumbs.dreamstime.com/t/vector-drone-prohibited-sign-illustration-colorful-flat-design-no-zone-quadcopter-red-background-70448549.jpg"></img>
+      <img style={{ width: "150px", height: "100px", objectFit: "cover" }} className="logo" title="DroneShip" src="http://arcos-platform.site/wp-content/uploads/2021/03/PosterArtboard-4Asse-1.png"></img>
           {/* <br></br>
           <div className="banner2">
             <h2>Drones are already delivering critical drugs,
@@ -19,19 +18,16 @@ const Search = (props) => {
                In the next 20 years,
               they'll change entire cities. Learn how shifting regulations and advances in technology will enable change.</h2>
           </div> */}
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      
+    
+      <div className="bannersingle" >
+            <h2>Good Afternoon, Romina!</h2>
+        </div>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
       <div className="bannersingle" >
             <h1>Find Drone Category</h1>
         </div>
