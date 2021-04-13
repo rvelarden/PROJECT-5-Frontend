@@ -10,7 +10,7 @@ const Search = (props) => {
       <br></br>
       <br></br>
       <br></br>
-      <img style={{ width: "150px", height: "100px", objectFit: "cover" }} className="logo" title="DroneShip" src="http://arcos-platform.site/wp-content/uploads/2021/03/PosterArtboard-4Asse-1.png"></img>
+      <img style={{ width: "90px", height: "90px", objectFit: "cover" }} className="logo" title="DroneShip" src="https://thumbs.dreamstime.com/t/vector-drone-prohibited-sign-illustration-colorful-flat-design-no-zone-quadcopter-red-background-70448549.jpg"></img>
           {/* <br></br>
           <div className="banner2">
             <h2>Drones are already delivering critical drugs,

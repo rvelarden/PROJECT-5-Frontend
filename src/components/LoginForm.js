@@ -52,8 +52,9 @@ class LoginForm extends React.Component {
 </video>
    <br></br>
       <Header as='h2' color='teal' textAlign='center'>
-        <Image style={{ width: "150px", height: "100px", objectFit: "cover" }} src="http://arcos-platform.site/wp-content/uploads/2021/03/PosterArtboard-4Asse.png" />
+        <Image style={{ width: "90px", height: "90px", objectFit: "cover" }} className="logo" title="DroneShip" src="https://thumbs.dreamstime.com/t/vector-drone-prohibited-sign-illustration-colorful-flat-design-no-zone-quadcopter-red-background-70448549.jpg" />
       </Header>
+    
   <Grid textAlign='center' style={{ height: '2vh' }} verticalAlign='middle' >
     <Grid.Column style={{ maxWidth: 450 }}>
       <Header as='h3'  textAlign='center' >

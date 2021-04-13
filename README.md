@@ -1,3 +1,9 @@
+# About
+DroneBox is an app that enables the user to send or receive a package by booking a Drone of their preference!
+
+# Project Demo
+https://www.youtube.com/watch?v=OmlbogR1gTI&ab_channel=RominaVelarde
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
