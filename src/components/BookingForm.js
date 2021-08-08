@@ -1,6 +1,8 @@
 import React from 'react'
-import { Form, Button } from 'semantic-ui-react'
-
+import { Form, Button, Card } from 'semantic-ui-react'
+import PlacesAutocomplete, {
+  
+} from 'react-places-autocomplete';
 
 class BookingForm extends React.Component{
     
@@ -10,6 +12,16 @@ class BookingForm extends React.Component{
         drone_id: ''
        
       }
+
+      handleChange = (from_address) => {
+        this.setState({ from_address });
+       
+       
+      };
+      handleChangeInput = (to_address) => {
+        this.setState({ to_address });
+       
+      };
     
       handleSubmit = (e) => {
         e.preventDefault()
@@ -36,22 +48,55 @@ class BookingForm extends React.Component{
       render() {
       return ( 
   <Form onSubmit={this.handleSubmit}>
-    <br></br>
-    
-    <Form.Group widths='equal'>
-      <Form.Input fluid placeholder='To Address' color='tile' onChange={(e)=>this.setState({from_address: e.target.value})} type="text" name="name" />
+      <br></br>
+      <Card.Content extra>
+          <PlacesAutocomplete
+            value={this.state.from_address}
+            onChange={this.handleChange}
+            // onSelect={this.handleSelect}
+           
+            >{({getInputProps, suggestions, getSuggestionItemProps, loading})=>(<div>
+                
+                <input{...getInputProps({placeholder: "From address"})} />
+                <div>
+                    {loading ? <div>...loading</div> : null}
+                    {suggestions.map(suggestion=>{
+                        const style = {
+                        backgroundColor: suggestion.active ? "#50C1E9" : "#fff7f7"
+                        }
+                    return <div{...getSuggestionItemProps(suggestion,{style})}>{suggestion.description}</div>
+                    })}
+                </div>
+            </div>)}</PlacesAutocomplete>
 
-      <Form.Input fluid placeholder='From Address' onChange={(e)=>this.setState({to_address: e.target.value})} type="text" name="address" />
-    </Form.Group>
-    {/* <Form.Select onChange={(e)=>this.setState({drone_id: e.target.value})} className="form-control" options={options} placeholder='Select Drone' /> */}
-    <select onChange={(e)=>this.setState({drone_id: e.target.value})}  className="input-text">
-           <option>Select Drone</option>
-              {this.props.drones.map(drone => <option value={drone.id}>{drone.model}</option>)}
-  </select>
-  
-  <Button type="submit" name="submit" value="Submit" fluid size='small'  color='blue' >
-            Submit
-          </Button>
+          <PlacesAutocomplete
+            value={this.state.to_address}
+            onChange={this.handleChangeInput}
+            onSelect={this.handleChangeInput}
+           
+            >{({getInputProps, suggestions, getSuggestionItemProps, loading})=>(<div>
+                
+                <input{...getInputProps({placeholder: "To address"})} />
+                <div>
+                    {loading ? <div>...loading</div> : null}
+                    {suggestions.map(suggestion=>{
+                        const style = {
+                        backgroundColor: suggestion.active ? "#fd5f00" : "#fff7f7"
+                        }
+                    return <div{...getSuggestionItemProps(suggestion,{style})}>{suggestion.description}</div>
+                    })}
+                </div>
+            </div>)}</PlacesAutocomplete>          
+          </Card.Content>
+      
+      <select onChange={(e)=>this.setState({drone_id: e.target.value})}  className="input-text">
+            <option>Select Drone</option>
+                {this.props.drones.map(drone => <option value={drone.id}>{drone.model}</option>)}
+      </select>
+    
+      <Button type="submit" name="submit" value="Submit" fluid size='small'  color='blue' >
+              Submit
+      </Button>
   </Form>
         )
       }

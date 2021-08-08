@@ -1,7 +1,8 @@
 import React from 'react'
-import { Button, Form } from 'semantic-ui-react'
-
-
+import { Button, Form, Card } from 'semantic-ui-react'
+import PlacesAutocomplete, {
+  
+} from 'react-places-autocomplete';
 
 
 class EditBooking extends React.Component{
@@ -12,7 +13,17 @@ class EditBooking extends React.Component{
        
       }
 
-  toggleBooking = (e)=> {
+      handleChange = (from_address) => {
+        this.setState({ from_address });
+       
+       
+      };
+      handleChangeInput = (to_address) => {
+        this.setState({ to_address });
+       
+      };    
+
+      toggleBooking = (e)=> {
       e.preventDefault()
       // console.log(this.props.updatedBookings)
         let editBooking = {
@@ -35,24 +46,6 @@ class EditBooking extends React.Component{
           this.props.editBookingForm(patchBooking)
         })
         
-        // .then(patchBooking => {
-        //   this.setState({
-        //     bookings: this.props.bookings.map((bookingItem) =>
-        //     //if existing booking.i is equal  to updatedbookin.id the replace existing booking with updated booking
-        //     bookingItem.id = patchBooking.id
-        //     // console.log
-        //     ),
-        //   });
-        //   // debugger
-        // })
-        
-
-        // .then(patchBooking => {
-        //   this.setState({
-        //     bookings: [...this.state.bookings, patchBooking]
-        //   });
-        // })
-            // .then(this.props.editBookingForm)  
   
 }
     
@@ -63,13 +56,45 @@ render() {
     <div className="container">
       <br></br>
       <Form onSubmit={(e)=>this.toggleBooking(e, this.props.updatedBookings)}>
-    <Form.Group widths='equal'>
-      <Form.Input type="text" name="name" placeholder=" From Address" onChange={(e)=>this.setState({from_address: e.target.value})}  value={this.props.from_address}/>
-    </Form.Group>
+      <Card.Content extra>
+          <PlacesAutocomplete
+            value={this.state.from_address}
+            onChange={this.handleChange}
+            // onSelect={this.handleSelect}
+           
+            >{({getInputProps, suggestions, getSuggestionItemProps, loading})=>(<div>
+                
+                <input{...getInputProps({placeholder: "From address"})} />
+                <div>
+                    {loading ? <div>...loading</div> : null}
+                    {suggestions.map(suggestion=>{
+                        const style = {
+                        backgroundColor: suggestion.active ? "#50C1E9" : "#fff7f7"
+                        }
+                    return <div{...getSuggestionItemProps(suggestion,{style})}>{suggestion.description}</div>
+                    })}
+                </div>
+            </div>)}</PlacesAutocomplete>
 
-    <Form.Group widths='equal'>
-      <Form.Input type="text" name="name" placeholder=" To Address" onChange={(e)=>this.setState({to_address: e.target.value})}   value={this.props.to_address}/>
-    </Form.Group>
+          <PlacesAutocomplete
+            value={this.state.to_address}
+            onChange={this.handleChangeInput}
+            onSelect={this.handleChangeInput}
+           
+            >{({getInputProps, suggestions, getSuggestionItemProps, loading})=>(<div>
+                
+                <input{...getInputProps({placeholder: "To address"})} />
+                <div>
+                    {loading ? <div>...loading</div> : null}
+                    {suggestions.map(suggestion=>{
+                        const style = {
+                        backgroundColor: suggestion.active ? "#fd5f00" : "#fff7f7"
+                        }
+                    return <div{...getSuggestionItemProps(suggestion,{style})}>{suggestion.description}</div>
+                    })}
+                </div>
+            </div>)}</PlacesAutocomplete>          
+          </Card.Content>
    
     <Button type="submit" name="submit" value="Submit" fluid size='small'  color='blue' >
            Submit

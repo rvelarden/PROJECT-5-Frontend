@@ -18,7 +18,6 @@ class BookingList extends Component {
             <h1 >My Upcoming Bookings</h1>
             </Header>
             </div>
-            {/* {this.props.bookings.map(bookingItem => <Booking booking={bookingItem} bookings={this.props.bookings} editBookingForm={this.props.editBookingForm} drones={this.props.drones} updatedBookings={this.props.updatedBookings}/>)} */}
             {this.props.bookings.map(bookingItem => <Booking booking={bookingItem} editBookingForm={this.props.editBookingForm} drones={this.props.drones} updatedBookings={this.props.updatedBookings} deleteBooking={this.props.deleteBooking} bookings={this.props.bookings}/>)}
           
         </div>
